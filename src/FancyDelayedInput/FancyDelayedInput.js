@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-DelayedInput.propTypes = {
+FancyDelayedInput.propTypes = {
   type: PropTypes.string,
   initialValue: PropTypes.string,
   inputDelay: PropTypes.number,
+  placeHolder: PropTypes.string,
   setInput: PropTypes.func.isRequired
 };
 
@@ -28,10 +29,11 @@ const StyledInput = styled.input`
   }
 `;
 
-function DelayedInput({
+function FancyDelayedInput({
   type = "text",
   initialValue = "",
   inputDelay = 300,
+  placeHolder = "",
   setInput
 }) {
   const [value, setValue] = useState(initialValue);
@@ -53,10 +55,10 @@ function DelayedInput({
     <StyledInput
       type={type}
       value={theValue}
+      placeholder={placeHolder}
       onChange={handleChange}
-      placeholder="Enter search term"
     />
   );
 }
 
-export default DelayedInput;
+export default FancyDelayedInput;
